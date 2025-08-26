@@ -1,9 +1,9 @@
 name: Waka Readme
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:      # возможность запускать вручную
   schedule:
-    - cron: "0 0 * * *" # раз в день
+    - cron: "0 0 * * *"   # запуск каждый день в 00:00 UTC
 
 jobs:
   update-readme:
@@ -12,9 +12,12 @@ jobs:
       - uses: athul/waka-readme@master
         with:
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-          SHOW_TITLE: "true"
-          TIME_RANGE: last_30_days
-          LANG_COUNT: "10"
-          BLOCKS: "⬜⬛"
-          SHOW_TIME: "true"
-          SHOW_TOTAL: "true"
+
+          # ⚙️ Кастомизация
+          SHOW_TITLE: "true"          # показывать заголовок блока
+          TIME_RANGE: last_30_days    # период: последние 30 дней
+          LANG_COUNT: "10"            # количество языков
+          BLOCKS: "█▓▒░"              # символы для прогресс-бара
+          SHOW_TIME: "true"           # показывать часы/минуты
+          SHOW_TOTAL: "true"          # показывать суммарное время
+          SHOW_MASKED_TIME: "false"   # учитывать "прочее" в сумме
