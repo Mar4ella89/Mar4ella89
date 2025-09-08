@@ -15,6 +15,8 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           wakatime_apikey: ${{ secrets.WAKATIME_API_KEY }}
+          # Ваш никнейм на GitHub
+          github_user: 'Mar4ella89'
           # Основные настройки
           timezone: 'Europe/Kyiv'
           locale: 'ru'
