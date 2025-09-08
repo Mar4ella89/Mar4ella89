@@ -1,42 +1,33 @@
 name: Waka Readme
 
 on:
-  workflow_dispatch:
   schedule:
-    # Запускать каждый день в 00:00 UTC
-    - cron: '0 0 * * *'
+    # Запуск каждый час
+    - cron: "0 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update-readme:
-    name: Обновление README
     runs-on: ubuntu-latest
     steps:
       - uses: anmol098/waka-readme-stats@master
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          wakatime_apikey: ${{ secrets.WAKATIME_API_KEY }}
-          # Ваш никнейм на GitHub
-          github_user: 'Mar4ella89'
-          # Основные настройки
-          timezone: 'Europe/Kyiv'
-          locale: 'ru'
-          show_loc_in_readme: "True"
-          # Настройки для языков
-          show_languages: "True"
-          show_language_per_repo: "True"
-          show_language_per_repo_details: "True"
-          show_language_per_repo_weekly: "True"
-          # Настройки для редакторов
-          show_editors: "True"
-          # Настройки для операционных систем
-          show_os: "True"
-          # Настройки для времени
-          show_time_in_github: "True"
-          # Настройки для проектов
-          show_projects: "True"
-          # Настройки для дисков
-          show_commit_detail: "True"
-          # Настройки для графиков
-          show_lines_of_code: "True"
-          # Настройки для графика коммитов
-          show_days_of_week: "True"
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+
+          # Настройки отображения (включай/выключай по вкусу)
+          SHOW_OS: "True"
+          SHOW_PROJECTS: "True"
+          SHOW_EDITORS: "True"
+          SHOW_TIMEZONE: "True"
+          SHOW_COMMIT: "True"
+          SHOW_LANGUAGE: "True"
+          SHOW_LINES_OF_CODE: "True"
+          SHOW_LOC_CHART: "True"
+          SHOW_PROFILE_VIEWS: "True"
+          SHOW_SHORT_INFO: "True"
+          SHOW_UPDATED_DATE: "True"
+          SHOW_TOTAL_CODE_TIME: "True"
