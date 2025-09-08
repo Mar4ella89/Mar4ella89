@@ -1,12 +1,9 @@
-name: Waka Readme
+name: WakaTime Readme
 
 on:
   schedule:
-    - cron: "0 * * * *"   # запуск каждый час
-  workflow_dispatch:
-
-permissions:
-  contents: write
+    - cron: "0 * * * *"   # каждый час
+  workflow_dispatch:      # можно запускать вручную
 
 jobs:
   update-readme:
@@ -16,22 +13,15 @@ jobs:
         with:
           GH_TOKEN: ${{ secrets.GH_PAT }}
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-
-          # включаем только то, что поддерживается
           SHOW_OS: "True"
           SHOW_PROJECTS: "True"
           SHOW_EDITORS: "True"
-          SHOW_TIMEZONE: "True"
-          SHOW_COMMIT: "True"
           SHOW_LANGUAGE: "True"
+          SHOW_LANGUAGE_PER_REPO: "True"
           SHOW_LINES_OF_CODE: "True"
           SHOW_LOC_CHART: "True"
+          SHOW_COMMIT: "True"
           SHOW_DAYS_OF_WEEK: "True"
           SHOW_PROFILE_VIEWS: "True"
-          SHOW_SHORT_INFO: "True"
-          SHOW_UPDATED_DATE: "True"
           SHOW_TOTAL_CODE_TIME: "True"
-
-          COMMIT_MESSAGE: "📊 Update WakaTime stats"
-          COMMIT_USERNAME: "github-actions[bot]"
-          COMMIT_EMAIL: "41898282+github-actions[bot]@users.noreply.github.com"
+          LOCALE: "en"
