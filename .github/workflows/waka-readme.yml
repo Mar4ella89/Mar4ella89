@@ -2,8 +2,7 @@ name: Waka Readme
 
 on:
   schedule:
-    # Запуск каждый час
-    - cron: "0 * * * *"
+    - cron: "0 * * * *" # запускается каждый час
   workflow_dispatch:
 
 permissions:
@@ -18,7 +17,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
 
-          # Настройки отображения (включай/выключай по вкусу)
           SHOW_OS: "True"
           SHOW_PROJECTS: "True"
           SHOW_EDITORS: "True"
